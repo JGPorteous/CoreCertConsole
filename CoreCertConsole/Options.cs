@@ -8,9 +8,9 @@ namespace CoreCertConsole
     [Verb("read", HelpText = "Read the Certificate Store(s).")]
     class ReadOptions
     {
-        [Option("StoreLocation", HelpText = "StoreLocation to Read [CurrentUser]", Default ="CurrentUser")]
+        [Option("StoreLocation", HelpText = "StoreLocation to Read", Default ="CurrentUser")]
         public string StoreLocation { get; set; }
-        [Option("StoreName", HelpText = "StoreName to Read [My]", Default="My")]
+        [Option("StoreName", HelpText = "StoreName to Read", Default="My")]
         public string StoreName { get; set; }
     }
 
@@ -23,10 +23,10 @@ namespace CoreCertConsole
     [Verb("add", HelpText = "Add a certificate to the Store.")]
     class AddOptions
     {
-        [Option("StoreLocation", HelpText = "StoreLocation [CurrentUser]", Default = "CurrentUser")]
+        [Option("StoreLocation", HelpText = "StoreLocation", Default = "CurrentUser")]
         public string StoreLocation { get; set; }
 
-        [Option("StoreName", HelpText = "StoreName [My]", Default = "My")]
+        [Option("StoreName", HelpText = "StoreName", Default = "My")]
         public string StoreName { get; set; }
 
         [Option("Path", HelpText = "Path")]
@@ -45,10 +45,10 @@ namespace CoreCertConsole
     [Verb("remove", HelpText = "Removes a certificate from the Store.")]
     class RemoveOptions
     {
-        [Option("StoreLocation", HelpText = "StoreLocation [CurrentUser]", Default = "CurrentUser")]
+        [Option("StoreLocation", HelpText = "StoreLocation", Default = "CurrentUser")]
         public string StoreLocation { get; set; }
         
-        [Option("StoreName", HelpText = "StoreName [My]", Default = "My")]
+        [Option("StoreName", HelpText = "StoreName", Default = "My")]
         public string StoreName { get; set; }
 
         [Option("Path", HelpText = "Path")]
