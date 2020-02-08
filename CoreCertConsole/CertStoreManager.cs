@@ -9,6 +9,7 @@ namespace CoreCertConsole
     {
         readonly StoreLocation storeLocation;
         readonly StoreName storeName;
+        private const int subjectLength = 20;
 
         public CertStoreManager()
         {
@@ -33,7 +34,7 @@ namespace CoreCertConsole
             
             foreach (var cert in store.Certificates)
             {
-                Console.WriteLine($"{cert.Subject.Substring(1, 10)} : {cert.Thumbprint}");
+                Console.WriteLine($"{cert.Subject.Substring(1, subjectLength)} : {cert.Thumbprint}");
             }
 
             store.Close();
@@ -54,7 +55,7 @@ namespace CoreCertConsole
                     store.Open(OpenFlags.ReadOnly);
                     foreach (var cert in store.Certificates)
                     {
-                        Console.WriteLine($"{cert.Subject.Substring(1, 10)} : {cert.Thumbprint}");
+                        Console.WriteLine($"{cert.Subject.Substring(1, subjectLength)} : {cert.Thumbprint}");
                     }
                     store.Close();
                 }
