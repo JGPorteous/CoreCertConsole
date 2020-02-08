@@ -7,6 +7,16 @@ namespace CoreCertConsole
 {
     public class TestRead
     {
+        StoreLocation storeLocation;
+        StoreName storeName;
+
+        public TestRead(string storeLocation, string storeName)
+        {
+            //TODO: Handle invalid inputs!
+            this.storeLocation = Enum.Parse<StoreLocation>(storeLocation);
+            this.storeName = Enum.Parse<StoreName>(storeName);
+        }
+
         public void Run()
         {
             Console.WriteLine("Certificate Store Enqury!\n");

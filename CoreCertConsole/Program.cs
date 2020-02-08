@@ -1,7 +1,6 @@
 ﻿using CommandLine;
 using System;
 
-
 namespace CoreCertConsole
 {
     class Program
@@ -28,7 +27,7 @@ namespace CoreCertConsole
 
         private static int RunReadAndReturnExitCode(ReadOptions opts)
         {
-            TestRead testRead = new TestRead();
+            TestRead testRead = new TestRead(opts.StoreLocation, opts.StoreName);
             testRead.Run();
 
             return 0;
