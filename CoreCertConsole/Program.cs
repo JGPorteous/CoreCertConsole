@@ -1,17 +1,37 @@
-﻿using System;
+﻿using CommandLine;
+using System;
 
 
 namespace CoreCertConsole
 {
     class Program
     {
-        static void Main(string[] args)
+        static int Main(string[] args)
         {
-            //Test reading the Stores and Locations
+            return CommandLine.Parser.Default.ParseArguments<ReadOptions, AddOptions, DeleteOptions>(args)
+                .MapResult(
+                  (ReadOptions opts) => RunReadAndReturnExitCode(opts),
+                  (AddOptions opts) => RunAddAndReturnExitCode(opts),
+                  (DeleteOptions opts) => RunDeleteAndReturnExitCode(opts),
+                  errs => 1);
+        }
+
+        private static int RunDeleteAndReturnExitCode(DeleteOptions opts)
+        {
+            throw new NotImplementedException();
+        }
+
+        private static int RunAddAndReturnExitCode(AddOptions opts)
+        {
+            throw new NotImplementedException();
+        }
+
+        private static int RunReadAndReturnExitCode(ReadOptions opts)
+        {
             TestRead testRead = new TestRead();
             testRead.Run();
 
-
+            return 0;
         }
     }
 }

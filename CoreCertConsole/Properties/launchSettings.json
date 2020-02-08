@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "CoreCertConsole": {
+      "commandName": "Project",
+      "commandLineArgs": "read"
+    }
+  }
+}
