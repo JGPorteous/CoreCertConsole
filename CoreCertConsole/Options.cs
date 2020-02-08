@@ -14,6 +14,12 @@ namespace CoreCertConsole
         public string StoreName { get; set; }
     }
 
+    [Verb("list", HelpText = "List available Stores.")]
+    class ListOptions
+    {
+
+    }
+
     [Verb("add", HelpText = "Add a certificate to the Store.")]
     class AddOptions
     {
