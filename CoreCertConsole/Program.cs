@@ -18,33 +18,63 @@ namespace CoreCertConsole
 
         private static int RunListAndReturnExitCode(ListOptions opts)
         {
-            CertStoreManager certStoreManager = new CertStoreManager();
-            certStoreManager.ListStoreDetails();
+            try
+            {
+                CertStoreManager certStoreManager = new CertStoreManager();
+                certStoreManager.ListStoreDetails();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Opps, we had an Error: {ex.Message}");
+                return -1;
+            }
 
             return 0;
         }
 
         private static int RunReadAndReturnExitCode(ReadOptions opts)
         {
-            CertStoreManager certStoreManager = new CertStoreManager(opts.StoreLocation, opts.StoreName);
-            certStoreManager.Run();
+            try
+            {
+                CertStoreManager certStoreManager = new CertStoreManager(opts.StoreLocation, opts.StoreName);
+                certStoreManager.ReadCertStore();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Opps, we had an Error: {ex.Message}");
+                return -1;
+            }
 
             return 0;
         }
-        
+
         private static int RunRemoveAndReturnExitCode(RemoveOptions opts)
         {
-            CertStoreManager certStoreManager = new CertStoreManager(opts.StoreLocation, opts.StoreName);
-            certStoreManager.RemoveCertificate(opts.Path, opts.Base64, opts.Password, opts.Thumbprint);
-
+            try
+            {
+                CertStoreManager certStoreManager = new CertStoreManager(opts.StoreLocation, opts.StoreName);
+                certStoreManager.RemoveCertificate(opts.Path, opts.Base64, opts.Password, opts.Thumbprint);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Opps, we had an Error: {ex.Message}");
+                return -1;
+            }
             return 0;
         }
 
         private static int RunAddAndReturnExitCode(AddOptions opts)
         {
-            CertStoreManager certStoreManager = new CertStoreManager(opts.StoreLocation, opts.StoreName);
-            certStoreManager.AddCertificate(opts.Path, opts.Base64, opts.Password, opts.Thumbprint);
-
+            try
+            {
+                CertStoreManager certStoreManager = new CertStoreManager(opts.StoreLocation, opts.StoreName);
+                certStoreManager.AddCertificate(opts.Path, opts.Base64, opts.Password, opts.Thumbprint);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Opps, we had an Error: {ex.Message}");
+                return -1;
+            }
             return 0;
         }
     }

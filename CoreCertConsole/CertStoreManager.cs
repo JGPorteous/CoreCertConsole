@@ -7,6 +7,8 @@ namespace CoreCertConsole
 {
     public class CertStoreManager
     {
+        public X509Certificate2 ProducerCertificate { get; set; }
+        public X509Certificate2[] ConsumerCertificates { get; set; }
         readonly StoreLocation storeLocation;
         readonly StoreName storeName;
         private const int subjectLength = 20;
@@ -25,7 +27,7 @@ namespace CoreCertConsole
                 this.storeName = StoreName.My;
         }
 
-        public void Run()
+        public void ReadCertStore()
         {
             using var store = new X509Store(storeName, storeLocation);
             store.Open(OpenFlags.ReadOnly);

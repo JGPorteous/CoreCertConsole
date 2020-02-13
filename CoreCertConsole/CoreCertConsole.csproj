@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <OutputType>Exe</OutputType>
+    <OutputType>library</OutputType>
     <TargetFramework>netcoreapp3.0</TargetFramework>
     <RuntimeIdentifiers>win7-x64;ubuntu.16.10-x64</RuntimeIdentifiers>
   </PropertyGroup>
